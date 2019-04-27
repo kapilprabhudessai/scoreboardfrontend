@@ -115,9 +115,9 @@ class Settings extends React.Component {
 
     return (
       <div className={styles.root}>
-        <Grid container spacing={24}>
-          <Grid item md={4} sm={4} />
-          <Grid item xs={4} sm={4} style={{ textAlign: "center" }}>
+      <Grid container spacing={12}>
+        <Grid item xs={12} sm={4}  md={4}  lg={24} xl={4}></Grid>
+        <Grid item xs={12} sm={16} md={16} lg={24} xl={4} style={{ textAlign: "center" }}>
             <Typography
               variant="h5"
               component="h3"
@@ -129,7 +129,6 @@ class Settings extends React.Component {
             <Typography component="div">
               <FormControl
                 className={styles.container}
-                style={{ width: 400 }}
                 noValidate
                 autoComplete="off"
               >

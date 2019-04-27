@@ -107,9 +107,9 @@ class AddDetails extends React.Component {
 
     return (
       <div className={styles.root}>
-        <Grid container spacing={24}>
-          <Grid item md={4} sm={4} />
-          <Grid item xs={4} sm={4} style={{ textAlign: "center" }}>
+      <Grid container spacing={12}>
+        <Grid item xs={12} sm={4}  md={4}  lg={24} xl={4}></Grid>
+        <Grid item xs={12} sm={16} md={16} lg={24} xl={4} style={{ textAlign: "center" }}>
             <Typography
               variant="h5"
               component="h3"
@@ -127,7 +127,7 @@ class AddDetails extends React.Component {
                   key="teamOne"
                   value={this.state.teamOneId}
                   onChange={this.setTeamOne}
-                  style={{ width: 400 }}
+                  style={{ width: 300 }}
                   inputProps={{
                     name: "teamOneId",
                     id: "teamOneId"
@@ -151,7 +151,7 @@ class AddDetails extends React.Component {
                   type="number"
                   InputProps={{ inputProps: { min: 0 } }}
                   className={styles.textField}
-                  style={{ width: 400 }}
+                  style={{ width: 300 }}
                   InputLabelProps={{
                     shrink: true
                   }}
@@ -166,7 +166,7 @@ class AddDetails extends React.Component {
                   key="teamTwo"
                   value={this.state.teamTwoId}
                   onChange={this.setTeamTwo}
-                  style={{ width: 400 }}
+                  style={{ width: 300 }}
                   inputProps={{
                     name: "teamTwoId",
                     id: "teamTwoId"
@@ -190,7 +190,7 @@ class AddDetails extends React.Component {
                   type="number"
                   InputProps={{ inputProps: { min: 0 } }}
                   className={styles.textField}
-                  style={{ width: 400 }}
+                  style={{ width: 300 }}
                   InputLabelProps={{
                     shrink: true
                   }}
