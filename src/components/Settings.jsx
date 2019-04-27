@@ -6,7 +6,7 @@ import { DropzoneArea } from "material-ui-dropzone";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { withSnackbar } from "notistack";
-import Constants from '../constants';
+import Constants from "../constants";
 
 class Settings extends React.Component {
   state = {

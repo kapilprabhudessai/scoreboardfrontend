@@ -8,7 +8,7 @@ import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { withSnackbar } from "notistack";
-import Constants from '../constants';
+import Constants from "../constants";
 
 class AddDetails extends React.Component {
   constructor() {
@@ -21,6 +21,7 @@ class AddDetails extends React.Component {
       teams: []
     };
   }
+
 
   setTeamOne = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -38,6 +39,7 @@ class AddDetails extends React.Component {
     this.setState({ teams: teams });
   };
   componentDidMount() {
+    console.log(Constants);
     var that = this;
     fetch(Constants.API_URL+"/teams", {
       method: "GET",
