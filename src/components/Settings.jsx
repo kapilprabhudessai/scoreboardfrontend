@@ -6,7 +6,7 @@ import { DropzoneArea } from "material-ui-dropzone";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { withSnackbar } from "notistack";
-
+import Constants from '../constants';
 
 class Settings extends React.Component {
   state = {
@@ -47,7 +47,7 @@ class Settings extends React.Component {
       const data = new FormData();
       data.append("file", that.state.file);
       data.append("team_name", that.state.team_name);
-      fetch("http://127.0.0.1:8888/teams/", {
+      fetch(Constants.API_URL+"/teams/", {
         method: "POST",
 
         body: data
@@ -82,7 +82,7 @@ class Settings extends React.Component {
     };
 
     let resetDatabase = function() {
-      fetch("http://127.0.0.1:8888/matches/reset", {
+      fetch(Constants.API_URL+"/matches/reset", {
         method: "DELETE",
         headers: {
           Accept: "application/json",

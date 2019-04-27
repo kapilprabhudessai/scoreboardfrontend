@@ -9,19 +9,16 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+
 
 //custom components
 import AddDetails from './components/AddDetails.jsx';
 import Settings from './components/Settings.jsx';
 import Results from './components/Results.jsx';
 
-import { SnackbarProvider, withSnackbar } from 'notistack';
+import { SnackbarProvider } from 'notistack';
 function TabContainer(props) {
-  const { classes } = props;
+
 
   function getDetails(){
     fetch('http://127.0.0.1:8888/matches/get-matches', {

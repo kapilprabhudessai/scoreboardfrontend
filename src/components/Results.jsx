@@ -1,24 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Input from '@material-ui/core/Input';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import FilledInput from '@material-ui/core/FilledInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import Grid from '@material-ui/core/Grid';
+import Constants from '../constants';
+
 class Results extends React.Component {
 
   constructor() {
@@ -31,7 +17,7 @@ class Results extends React.Component {
 
   componentDidMount() {
     var that = this;
-    fetch('http://127.0.0.1:8888/matches', {
+    fetch(Constants.API_URL+'/matches', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -46,7 +32,7 @@ class Results extends React.Component {
 
   render() {
 
-    let that = this;
+
 
 
   return (

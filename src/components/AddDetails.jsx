@@ -1,25 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Input from "@material-ui/core/Input";
-import OutlinedInput from "@material-ui/core/OutlinedInput";
-import FilledInput from "@material-ui/core/FilledInput";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { withSnackbar } from "notistack";
+import Constants from '../constants';
 
 class AddDetails extends React.Component {
   constructor() {
@@ -50,7 +39,7 @@ class AddDetails extends React.Component {
   };
   componentDidMount() {
     var that = this;
-    fetch("http://127.0.0.1:8888/teams", {
+    fetch(Constants.API_URL+"/teams", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -70,7 +59,6 @@ class AddDetails extends React.Component {
   }
 
   render() {
-    let reload = false;
     let that = this;
     let saveDetails = function() {
 
@@ -78,7 +66,7 @@ class AddDetails extends React.Component {
         that.props.enqueueSnackbar("Select Team 1", { variant: "error" });
         return;
       }
-      if (that.state.teamTwoId == "") {
+      if (that.state.teamTwoId === "") {
         that.props.enqueueSnackbar("Select Team 2", { variant: "error"});
         return;
       }
@@ -86,7 +74,7 @@ class AddDetails extends React.Component {
         that.props.enqueueSnackbar("There should be 2 different teams", { variant: "error"});
         return;
       }
-      fetch("http://127.0.0.1:8888/matches/add-match-stat", {
+      fetch(Constants.API_URL+"/matches/add-match-stat", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -114,32 +102,6 @@ class AddDetails extends React.Component {
     };
 
 
-
-    let getTeams = function() {
-      fetch("http://127.0.0.1:8888/teams", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        }
-      })
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(myJson) {
-          var teams = [];
-          for (var i in myJson) {
-            teams.push({
-              id2: "k" + myJson[i]._id,
-              id: myJson[i]._id,
-              name: myJson[i].name
-            });
-          }
-          that.setTeams(teams);
-        });
-    };
-
-    //getTeams();
 
     return (
       <div className={styles.root}>
